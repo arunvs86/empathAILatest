@@ -9,7 +9,7 @@ const useGetAllPost = () => {
     useEffect(() => {
         const fetchAllPost = async () => {
             try {
-                const res = await axios.get('http://localhost:1111/api/v1/thought/all', { withCredentials: true });
+                const res = await axios.get('https://empathailatest.onrender.com/api/v1/thought/all', { withCredentials: true });
                 if (res.data.success) { 
                     dispatch(setThoughts(res.data.thoughts));
                 }

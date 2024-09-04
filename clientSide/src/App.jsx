@@ -54,7 +54,7 @@ function App() {
   // const { socket } = useSelector(store => store.socketio);
   const dispatch = useDispatch();
 
-  const socket = useWebSocket('http://localhost:1111',carer?._id)
+  const socket = useWebSocket('https://empathailatest.onrender.com',carer?._id)
   
   return (
     <>

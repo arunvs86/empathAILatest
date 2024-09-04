@@ -34,7 +34,7 @@ const CommentDialog = ({ open, setOpen }) => {
   const sendMessageHandler = async () => {
 
     try {
-      const res = await axios.post(`http://localhost:1111/api/v1/thought/${selectedThought?._id}/discuss`, { text }, {
+      const res = await axios.post(`https://empathailatest.onrender.com/api/v1/thought/${selectedThought?._id}/discuss`, { text }, {
         headers: {
           'Content-Type': 'application/json'
         },

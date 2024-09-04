@@ -10,7 +10,7 @@ const useGetCarerProfile = (carerId) => {
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
-                const res = await axios.get(`http://localhost:1111/api/v1/carer/${carerId}/profile`, { withCredentials: true });
+                const res = await axios.get(`https://empathailatest.onrender.com/api/v1/carer/${carerId}/profile`, { withCredentials: true });
                 if (res.data.success) { 
                     dispatch(setCarerProfile(res.data.carer));
                 }

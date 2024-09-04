@@ -34,7 +34,7 @@ const LeftSidebar = () => {
   const logoutHandler = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:1111/api/v1/carer/signout",
+        "https://empathailatest.onrender.com/api/v1/carer/signout",
         { withCredentials: true }
       );
       if (res.data.success) {

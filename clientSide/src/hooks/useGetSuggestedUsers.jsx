@@ -9,7 +9,7 @@ const useGetSuggestedUsers = () => {
     useEffect(() => {
         const fetchSuggestedUsers = async () => {
             try {
-                const res = await axios.get('http://localhost:1111/api/v1/carer/find', { withCredentials: true });
+                const res = await axios.get('https://empathailatest.onrender.com/api/v1/carer/find', { withCredentials: true });
                 if (res.data.success) {
                     dispatch(setSuggestedCarers(res.data.carers));
                 }

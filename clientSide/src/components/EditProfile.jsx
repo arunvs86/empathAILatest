@@ -41,7 +41,7 @@ const EditProfile = () => {
         }
         try {
             setLoading(true);
-            const res = await axios.post('http://localhost:1111/api/v1/carer/profile/edit', formData,{
+            const res = await axios.post('https://empathailatest.onrender.com/api/v1/carer/profile/edit', formData,{
                 headers:{
                     'Content-Type':'multipart/form-data'
                 },

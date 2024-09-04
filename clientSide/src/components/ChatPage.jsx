@@ -24,7 +24,7 @@ const ChatPage = () => {
 
         // First send the user's message to the server
         const res = await axios.post(
-            `http://localhost:1111/api/v1/message/send/${receiverId}`,
+            `https://empathailatest.onrender.com/api/v1/message/send/${receiverId}`,
             { textMessage },
             {
                 headers: {
@@ -66,7 +66,7 @@ const ChatPage = () => {
 
                     // Send the bot's response to the server to save it
                     const botRes = await axios.post(
-                        `http://localhost:1111/api/v1/message/send/${carer._id}`,
+                        `https://empathailatest.onrender.com/api/v1/message/send/${carer._id}`,
                         newMessageFromBot, // Send the bot's message object with senderId
                         {
                             headers: {

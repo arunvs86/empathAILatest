@@ -43,7 +43,7 @@ const CreatePost = ({ open, setOpen }) => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:1111/api/v1/thought/addThought",
+        "https://empathailatest.onrender.com/api/v1/thought/addThought",
         formData,
         {
           headers: {

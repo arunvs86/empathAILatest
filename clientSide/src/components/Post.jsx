@@ -36,7 +36,7 @@ const Post = ({ thought }) => {
     try {
       const action = liked ? "unAppreciate" : "appreciate";
       const res = await axios.get(
-        `http://localhost:1111/api/v1/thought/${thought._id}/${action}`,
+        `https://empathailatest.onrender.com/api/v1/thought/${thought._id}/${action}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -65,7 +65,7 @@ const Post = ({ thought }) => {
   const commentHandler = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:1111/api/v1/thought/${thought._id}/discuss`,
+        `https://empathailatest.onrender.com/api/v1/thought/${thought._id}/discuss`,
         { text },
         {
           headers: {
@@ -96,7 +96,7 @@ const Post = ({ thought }) => {
   const deletePostHandler = async () => {
     try {
       const res = await axios.delete(
-        `http://localhost:1111/api/v1/thought/delete/${thought?._id}`,
+        `https://empathailatest.onrender.com/api/v1/thought/delete/${thought?._id}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -115,7 +115,7 @@ const Post = ({ thought }) => {
   const bookmarkHandler = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:1111/api/v1/thought/${thought?._id}/bookmark`,
+        `https://empathailatest.onrender.com/api/v1/thought/${thought?._id}/bookmark`,
         { withCredentials: true }
       );
       if (res.data.success) {
