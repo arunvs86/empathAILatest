@@ -1,0 +1,18 @@
+.sidebar-links {
+    margin-top: 20px;
+}
+.link-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.link-item i {
+    margin-right: 10px;
+}
+.link-item a {
+    text-decoration: none;
+    color: #3498db;
+}
+.link-item a:hover {
+    text-decoration: underline;
+}
