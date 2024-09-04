@@ -55,6 +55,7 @@ const LeftSidebar = () => {
     } else if (textType === "Create") {
       setOpen(true);
     } else if (textType === "My Profile") {
+          console.log(carer)
           navigate(`/profile/${carer?._id}`);
     } else if (textType === "Home") {
       navigate("/");

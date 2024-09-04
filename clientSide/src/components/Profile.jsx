@@ -122,7 +122,7 @@ const Profile = () => {
                 </p>
                 <p>
                   <span className="font-semibold">
-                    {targetProfile?.careGivers.length}{" "}
+                    {targetProfile.careGivers.length}{" "}
                   </span>
                   Caregivers
                 </p>

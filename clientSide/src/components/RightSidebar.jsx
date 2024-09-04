@@ -9,7 +9,7 @@ import '../components/styles/rightSideBar.css'
 const RightSidebar = () => {
   const { carer } = useSelector(store => store.carer);
   return (
-    <div className='w-fit my-10 pr-32'>
+    <div className='w-fit my-10'>
       {/* <div className='flex items-center gap-2'>
         <Link to={`/profile/${carer?._id}`}>
           <Avatar>

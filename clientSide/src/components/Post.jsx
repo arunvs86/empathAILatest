@@ -127,7 +127,8 @@ const Post = ({ thought }) => {
   };
 
   return (
-    <div className="flex-1 my-8 flex flex-col items-center w-full">
+    <div className="flex-1 my-8 mx-2 flex flex-col items-center w-full"
+         style={{ marginLeft: "2rem" ,  marginRight:"2rem", width: "100%" }}>
       <div
         className="my-8 mx-auto"
         style={{ maxWidth: "750px", width: "100%" }}
