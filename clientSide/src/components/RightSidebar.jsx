@@ -23,7 +23,8 @@ const RightSidebar = () => {
         </div>
       </div> */}
       {/* Useful Links Section */}
-      <div className="sidebar-links mt-6">
+      <div className="sidebar-links mt-6" 
+      style={{ width: "250px" ,  marginRight:"1rem"}}>
                 <h3 className="text-lg font-semibold mb-2">Some Useful Links</h3>
                 <ul>
                     <li className="link-item">
