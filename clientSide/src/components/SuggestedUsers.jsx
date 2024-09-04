@@ -14,7 +14,7 @@ const SuggestedUsers = () => {
             {
                 suggestedCarers.map((carer,index) => {
                     return (
-                        <div key={index} className='flex items-center justify-between my-5'>
+                        <div key={index} className='flex items-center my-5'>
                             <div className='flex items-center gap-2'>
                                 <Link to={`/profile/${carer?._id}`}>
                                     <Avatar>
@@ -24,7 +24,7 @@ const SuggestedUsers = () => {
                                 </Link>
                                 <div>
                                     <h1 className='font-semibold text-sm'><Link to={`/profile/${carer?._id}`}>{carer?.username}</Link></h1>
-                                    <span className='text-gray-600 text-sm'>{carer?.userName || 'Bio here...'}</span>
+                                    <span className='text-gray-600 text-sm'>{carer?.userName || ''}{ }</span>
                                 </div>
                             </div>
                             <span className='text-[#3BADF8] text-xs font-bold cursor-pointer hover:text-[#3495d6]'>Follow</span>
