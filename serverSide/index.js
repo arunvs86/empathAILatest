@@ -31,10 +31,21 @@ empathAiApp.use("/api/v1/carer",carerRoutes)
 empathAiApp.use("/api/v1/thought", thoughtRoutes);
 empathAiApp.use("/api/v1/message", messageRoutes);
 
-empathAiApp.use(express.static(path.join(__dirname, "/clientSide/dist")));
-empathAiApp.get("*", (req,res)=>{
-    res.sendFile(path.resolve(__dirname, "clientSide", "index.html"));
-})
+// Serve static files from the clientSide/dist directory
+empathAiApp.use(express.static(path.join(__dirname, "clientSide", "dist")));
+
+// Catch-all route to serve index.html for all non-static routes
+empathAiApp.get("*", (req, res) => {
+  // Check if the request is for an asset (like .js, .css, or .png files)
+  if (req.originalUrl.startsWith('/api')) {
+    // If it's an API route, don't serve index.html, let the API route handle it
+    return next();
+  }
+
+  // If it's not an API or static file request, serve the index.html
+  res.sendFile(path.resolve(__dirname, "clientSide", "dist", "index.html"));
+});
+
 
 server.listen(portNumber, ()=>{
     connectToDatabase();
