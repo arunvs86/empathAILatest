@@ -24,7 +24,7 @@ const SuggestedUsers = () => {
                                 </Link>
                                 <div>
                                     <h1 className='font-semibold text-sm'><Link to={`/profile/${carer?._id}`}>{carer?.username}</Link></h1>
-                                    <span className='text-gray-600 text-sm'>{carer?.userName || ''}{ " "}</span>
+                                    <span className='font-bold text-gray-600 text-sm'>{carer?.userName || ''}{ " "}</span>
                                 </div>
                             </div>
                         </div>

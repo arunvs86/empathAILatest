@@ -49,7 +49,7 @@ export const createDailyThought = async () => {
 };
 
 // Schedule the cron job to run once a day at 9 AM
-cron.schedule('* * * * *', () => {
+cron.schedule('0 9 * * *', () => {
   console.log('Running daily post job...');
   createDailyThought(); 
 }, {
