@@ -73,11 +73,11 @@ const EditProfile = () => {
                 <div className='flex items-center justify-between bg-gray-100 rounded-xl p-4'>
                     <div className='flex items-center gap-3'>
                         <div className = "avatar">
-                            <div className = "avatar-fallback">CN</div>
+                            <div className = "avatar-fallback">  {carer?.userName?.charAt(0).toUpperCase()}
+                            </div>
                         </div>
                         <div>
                             <h1 className='font-bold text-sm'>{carer?.username}</h1>
-                            <span className='text-gray-600'>{carer?.bio || 'Bio here...'}</span>
                         </div>
                     </div>
                     <input ref={imageRef} onChange={fileChangeHandler} type='file' className='hidden' />

@@ -72,7 +72,8 @@ const Profile = () => {
         <div className="grid grid-cols-2">
           <section className="flex items-center justify-center">
             <div className="avatar h-32 w-32">
-              <div className = "avatar-fallback">CN</div>
+              <div className = "avatar-fallback">  {carerProfile?.userName?.charAt(0).toUpperCase()}
+              </div>
             </div>
           </section>
           <section>

@@ -75,7 +75,9 @@ const CreatePost = ({ open, setOpen }) => {
         </DialogHeader>
         <div className="flex gap-3 items-center">
           <div className = "avatar">
-            <div className = "avatar-fallback">CN</div>
+            <div className = "avatar-fallback"> 
+               {carer?.userName?.charAt(0).toUpperCase()}
+            </div>
           </div>
           <div>
             <h1 className="font-semibold text-xs">{carer?.username}</h1>

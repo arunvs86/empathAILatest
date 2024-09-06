@@ -74,7 +74,8 @@ const CommentDialog = ({ open, setOpen }) => {
               <div className='flex gap-3 items-center'>
                 <Link>
                   <div className = "avatar">
-                    <div className = "avatar-fallback">CN</div>
+                    <div className = "avatar-fallback">  {selectedThought?.carer?.userName?.charAt(0).toUpperCase()}
+                    </div>
                   </div>
                 </Link>
                 <div>

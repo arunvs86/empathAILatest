@@ -78,7 +78,7 @@ const LeftSidebar = () => {
     {
       icon: (
         <div className="avatar w-6 h-6">
-          <div className = "avatar-fallback">CN</div>
+          <div className = "avatar-fallback">  {carer?.userName?.charAt(0).toUpperCase()}          </div>
         </div>
       ),
       text: "My Profile",
@@ -122,7 +122,8 @@ const LeftSidebar = () => {
                                   className="flex items-center gap-2 my-2"
                                 >
                                   <div className = "avatar">
-                                    <div className = "avatar-fallback">CN</div>
+                                    <div className = "avatar-fallback">  {carer?.userName?.charAt(0).toUpperCase()}
+                                    </div>
                                   </div>
                                   <p
                                     onClick={() =>

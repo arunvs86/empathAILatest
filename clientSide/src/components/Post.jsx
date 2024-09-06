@@ -166,10 +166,11 @@ const Post = ({ thought }) => {
       >
         <div className="flex items-center gap-2">
           <div className = "avatar">
-            <div className = "avatar-fallback">CN</div>
+            <div className = "avatar-fallback">  {thought.carer?.userName?.charAt(0).toUpperCase()}
+            </div>
           </div>
           <div className="flex items-center gap-3">
-            <h1>{thought.carer?.userName}</h1>
+            <h1 className="font-bold">{thought.carer?.userName}</h1>
             {carer?._id === thought?.carer?._id && (
               <span className="badge badge-secondary">Owner</span>
             )}

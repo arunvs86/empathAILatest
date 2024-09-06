@@ -139,7 +139,8 @@ const ChatPage = () => {
                   >
                     <div className="avatar w-14 h-14">
                       {/* <div className="avatar img" src={suggestedCarer?.userDp} /> */}
-                      <div div className="avatar-fallback">CN</div>
+                      <div className="avatar-fallback">  {suggestedCarer?.userName?.charAt(0).toUpperCase()}
+                      </div>
                     </div>
                     <div className="flex flex-col">
                       <span className="font-bold">
@@ -163,7 +164,8 @@ const ChatPage = () => {
         <section className="flex-1 border-l border-l-gray-300 flex flex-col h-full">
           <div className="flex gap-3 items-center px-3 py-2 border-b border-gray-300 sticky top-0 bg-white z-10">
             <div className="avatar">
-              <div className="avatar-fallback">CN</div>
+              <div className="avatar-fallback">  {selectedCarer?.userName?.charAt(0).toUpperCase()}
+              </div>
             </div>
             <div className="flex flex-col">
               <span>{selectedCarer?.userName}</span>

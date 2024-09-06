@@ -18,7 +18,8 @@ const SuggestedUsers = () => {
                             <div className='flex items-center gap-2'>
                                 <Link to={`/profile/${carer?._id}`}>
                                     <div className = "avatar">
-                                        <div className = "avatar-fallback">CN</div>
+                                        <div className = "avatar-fallback">  {carer?.userName?.charAt(0).toUpperCase()}
+                                        </div>
                                     </div>
                                 </Link>
                                 <div>

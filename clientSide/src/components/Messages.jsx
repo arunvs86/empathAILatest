@@ -28,9 +28,10 @@ const Messages = ({ selectedCarer }) => {
       <div className="flex justify-center">
         <div className="flex flex-col items-center justify-center">
           <div className="avatar h-20 w-20">
-            <div className = "avatar-fallback">CN</div>
+            <div className = "avatar-fallback">  {selectedCarer?.userName?.charAt(0).toUpperCase()}
+            </div>
           </div>
-          <span>{selectedCarer?.userName}</span>
+          <span className="font-bold">{selectedCarer?.userName}</span>
           <Link to={`/profile/${selectedCarer?._id}`}>
             <button className="button button-secondary button-default-size h-8 my-2">
               View profile

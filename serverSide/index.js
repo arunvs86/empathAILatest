@@ -8,6 +8,7 @@ import thoughtRoutes from "./routes/thoughtRoutes.js"
 import messageRoutes from "./routes/messageRoutes.js"
 import { empathAiApp, server } from "./socketConfig/socketConnection.js";
 import path from "path";
+import "./autoPosting.js"
 
 dotenv.config();
 
