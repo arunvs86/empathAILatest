@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCarerAuthentication } from '@/redux/authSlice';
+import "../components/styles/styles.css";
 
 const Login = () => {
     const [input, setInput] = useState({
@@ -65,32 +66,32 @@ const Login = () => {
                 </div>
                 <div>
                     <span className='font-medium'>Username</span>
-                    <Input
+                    <input
                         type="text"
                         name="userName"
                         value={input.userName}
                         onChange={changeEventHandler}
-                        className="focus-visible:ring-transparent my-2"
+                        className="input focus-visible:ring-transparent my-2"
                     />
                 </div>
                 <div>
                     <span className='font-medium'>Password</span>
-                    <Input
+                    <input 
                         type="password"
                         name="password"
                         value={input.password}
                         onChange={changeEventHandler}
-                        className="focus-visible:ring-transparent my-2"
+                        className="input focus-visible:ring-transparent my-2"
                     />
                 </div>
                 {
                     loading ? (
-                        <Button>
+                        <button className='button button-default button-default-size'>
                             <Loader2 className='mr-2 h-4 w-4 animate-spin' />
                             Please wait
-                        </Button>
+                        </button>
                     ) : (
-                        <Button type='submit'>Login</Button>
+                        <button className='button button-default button-default-size' type='submit'>Login</button>
                     )
                 }
 

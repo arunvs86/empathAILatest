@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Link } from 'react-router-dom'
 import { MoreHorizontal } from 'lucide-react'
-import { Button } from './ui/button'
 import { useDispatch, useSelector } from 'react-redux'
 import Discussion from './Comment'
 import axios from 'axios'
 import { toast } from 'sonner'
 import { setThoughts } from '@/redux/postSlice'
+import "../components/styles/styles.css";
 
 const CommentDialog = ({ open, setOpen }) => {
   const [text, setText] = useState("");
@@ -74,10 +73,9 @@ const CommentDialog = ({ open, setOpen }) => {
             <div className='flex items-center justify-between p-4'>
               <div className='flex gap-3 items-center'>
                 <Link>
-                  <Avatar>
-                    <AvatarImage src={selectedThought?.carer?.userDp} />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
+                  <div className = "avatar">
+                    <div className = "avatar-fallback">CN</div>
+                  </div>
                 </Link>
                 <div>
                   <Link className='font-semibold text-xs'>{selectedThought?.carer?.userName}</Link>
@@ -85,7 +83,7 @@ const CommentDialog = ({ open, setOpen }) => {
                 </div>
               </div>
 
-              <Dialog>
+              {/* <Dialog>
                 <DialogTrigger asChild>
                   <MoreHorizontal className='cursor-pointer' />
                 </DialogTrigger>
@@ -97,7 +95,7 @@ const CommentDialog = ({ open, setOpen }) => {
                     Add to favorites
                   </div>
                 </DialogContent>
-              </Dialog>
+              </Dialog> */}
             </div>
             <hr />
             <div className='flex-1 overflow-y-auto max-h-96 p-4'>
@@ -108,7 +106,7 @@ const CommentDialog = ({ open, setOpen }) => {
             <div className='p-4'>
               <div className='flex items-center gap-2'>
                 <input type="text" value={text} onChange={changeEventHandler} placeholder='Start a discussion...' className='w-full outline-none border text-sm border-gray-300 p-2 rounded' />
-                <Button disabled={!text.trim()} onClick={sendMessageHandler} variant="outline">Send</Button>
+                <button className='button button-default button-default-size' disabled={!text.trim()} onClick={sendMessageHandler} variant="outline">Send</button>
               </div>
             </div>
           </div>

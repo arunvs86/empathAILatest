@@ -1,0 +1,388 @@
+/* Avatar Container */
+.avatar {
+    position: relative;
+    display: flex;
+    height: 40px;
+    width: 40px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  /* Avatar Image */
+  .avatar img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  /* Avatar Fallback */
+  .avatar-fallback {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f1f5f9;
+  }
+  
+  
+  /* Base Badge Styles */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px; /* fully rounded */
+    padding: 0.25rem 0.625rem; /* px-2.5 py-0.5 */
+    font-size: 0.75rem; /* text-xs */
+    font-weight: 600; /* font-semibold */
+    transition: background-color 0.2s ease-in-out;
+    outline: none;
+  }
+  
+  /* Focus Styles */
+  .badge:focus {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+  
+  /* Badge Variants */
+  /* Default Variant */
+  .badge-default {
+    border: transparent;
+    background-color: #0f172a; /* Slate-900 */
+    color: #f8fafc; /* Slate-50 */
+  }
+  
+  .badge-default:hover {
+    background-color: rgba(15, 23, 42, 0.8); /* Slate-900/80 */
+  }
+  
+  .badge-default:focus {
+    outline-color: #0f172a; /* Slate-900 */
+  }
+  
+  /* Secondary Variant */
+  .badge-secondary {
+    border: transparent;
+    background-color: #f1f5f9; /* Slate-100 */
+    color: #0f172a; /* Slate-900 */
+  }
+  
+  .badge-secondary:hover {
+    background-color: rgba(241, 245, 249, 0.8); /* Slate-100/80 */
+  }
+  
+  .badge-secondary:focus {
+    outline-color: #334155; /* Slate-800 */
+  }
+  
+  /* Destructive Variant */
+  .badge-destructive {
+    border: transparent;
+    background-color: #ef4444; /* Red-500 */
+    color: #f8fafc; /* Slate-50 */
+  }
+  
+  .badge-destructive:hover {
+    background-color: rgba(239, 68, 68, 0.8); /* Red-500/80 */
+  }
+  
+  .badge-destructive:focus {
+    outline-color: #7f1d1d; /* Red-900 */
+  }
+  
+  /* Outline Variant */
+  .badge-outline {
+    color: #0f172a; /* Slate-950 */
+    background-color: transparent;
+    border: 1px solid #0f172a; /* Slate-950 */
+  }
+  
+  .badge-outline:focus {
+    outline-color: #0f172a; /* Slate-950 */
+  }
+  
+  /* Base Button Styles */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 0.375rem; /* rounded-md */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    transition: background-color 0.2s ease-in-out;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .button:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+  
+  /* Disabled state */
+  .button:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  
+  /* Variants */
+  
+  /* Default Variant */
+  .button-default {
+    background-color: #0f172a; /* Slate-900 */
+    color: #f8fafc; /* Slate-50 */
+  }
+  
+  .button-default:hover {
+    background-color: rgba(15, 23, 42, 0.9); /* Slate-900/90 */
+  }
+  
+  .button-default:focus-visible {
+    outline-color: #0f172a; /* Slate-950 */
+  }
+  
+  /* Destructive Variant */
+  .button-destructive {
+    background-color: #ef4444; /* Red-500 */
+    color: #f8fafc; /* Slate-50 */
+  }
+  
+  .button-destructive:hover {
+    background-color: rgba(239, 68, 68, 0.9); /* Red-500/90 */
+  }
+  
+  .button-destructive:focus-visible {
+    outline-color: #7f1d1d; /* Red-900 */
+  }
+  
+  /* Outline Variant */
+  .button-outline {
+    border: 1px solid #e2e8f0; /* Slate-200 */
+    background-color: white;
+    color: #0f172a; /* Slate-900 */
+  }
+  
+  .button-outline:hover {
+    background-color: #f1f5f9; /* Slate-100 */
+  }
+  
+  .button-outline:focus-visible {
+    outline-color: #0f172a; /* Slate-950 */
+  }
+  
+  /* Secondary Variant */
+  .button-secondary {
+    background-color: #f1f5f9; /* Slate-100 */
+    color: #0f172a; /* Slate-900 */
+  }
+  
+  .button-secondary:hover {
+    background-color: rgba(241, 245, 249, 0.8); /* Slate-100/80 */
+  }
+  
+  .button-secondary:focus-visible {
+    outline-color: #334155; /* Slate-800 */
+  }
+  
+  /* Ghost Variant */
+  .button-ghost:hover {
+    background-color: #f1f5f9; /* Slate-100 */
+    color: #0f172a; /* Slate-900 */
+  }
+  
+  .button-ghost:focus-visible {
+    outline-color: #0f172a; /* Slate-950 */
+  }
+  
+  /* Link Variant */
+  .button-link {
+    color: #0f172a; /* Slate-900 */
+    text-decoration: underline;
+  }
+  
+  .button-link:hover {
+    text-decoration: underline;
+  }
+  
+  .button-link:focus-visible {
+    outline-color: #0f172a; /* Slate-950 */
+  }
+  
+  /* Sizes */
+  
+  /* Default Size */
+  .button-default-size {
+    height: 2.5rem; /* h-10 */
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+  }
+  
+  /* Small Size */
+  .button-sm {
+    height: 2.25rem; /* h-9 */
+    padding: 0.25rem 0.75rem; /* px-3 */
+    border-radius: 0.375rem; /* rounded-md */
+  }
+  
+  /* Large Size */
+  .button-lg {
+    height: 2.75rem; /* h-11 */
+    padding: 0.5rem 2rem; /* px-8 */
+    border-radius: 0.375rem; /* rounded-md */
+  }
+  
+  /* Icon Size */
+  .button-icon {
+    height: 2.5rem; /* h-10 */
+    width: 2.5rem; /* w-10 */
+  }
+  
+  /* Base Modal Styles */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Black with 80% opacity */
+    z-index: 50;
+    display: none; /* Initially hidden */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Open State of Overlay */
+  .dialog-overlay.open {
+    display: block;
+    opacity: 1;
+  }
+  
+  /* Modal Content */
+  .dialog-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem; /* Rounded corners */
+    width: 100%;
+    max-width: 500px;
+    z-index: 51;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translate(-50%, -60%); /* Start animation higher */
+  }
+  
+  /* Open State of Modal Content */
+  .dialog-overlay.open .dialog-content {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Moves to the center */
+  }
+  
+  /* Dialog Header */
+  .dialog-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Dialog Title */
+  .dialog-title {
+    font-size: 1.25rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Dialog Description */
+  .dialog-description {
+    font-size: 0.875rem; /* text-sm */
+    color: #6b7280; /* slate-500 */
+  }
+  
+  /* Dialog Footer */
+  .dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  /* Dialog Close Button */
+  .dialog-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: #6b7280; /* slate-500 */
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .dialog-close:hover {
+    opacity: 1;
+  }
+  
+  /* Input Field Styles */
+.input {
+    display: flex;
+    height: 2.5rem; /* h-10 */
+    width: 100%; /* Full width */
+    border-radius: 0.375rem; /* rounded-md */
+    border: 1px solid #e2e8f0; /* border-slate-200 */
+    background-color: white;
+    padding: 0.5rem 0.75rem; /* px-3 py-2 */
+    font-size: 0.875rem; /* text-sm */
+    color: #0f172a; /* Text color */
+  }
+  
+  .input::placeholder {
+    color: #94a3b8; /* placeholder:text-slate-500 */
+  }
+  
+  /* Focus Styles */
+  .input:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #0f172a; /* focus-visible:ring-slate-950 */
+  }
+  
+  /* Disabled State */
+  .input:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  /* Dark Mode Styles */
+  .dark .input {
+    border-color: #334155; /* dark:border-slate-800 */
+    background-color: #0f172a; /* dark:bg-slate-950 */
+    color: #f8fafc; /* White text in dark mode */
+  }
+  
+  .dark .input::placeholder {
+    color: #94a3b8; /* dark:placeholder:text-slate-400 */
+  }
+  
+  .dark .input:focus-visible {
+    box-shadow: 0 0 0 2px #cbd5e1; /* dark:focus-visible:ring-slate-300 */
+  }
+
+  /* Label Styles */
+.label {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    line-height: 1.25rem; /* leading-none */
+  }
+  
+  /* Disabled State for Label */
+  .peer-disabled:disabled + .label {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  

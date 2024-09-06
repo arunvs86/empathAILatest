@@ -9,6 +9,7 @@ import { Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { setCarerAuthentication } from '@/redux/authSlice';
+import "../components/styles/styles.css";
 
 const EditProfile = () => {
     const imageRef = useRef();
@@ -71,17 +72,16 @@ const EditProfile = () => {
                 <h1 className='font-bold text-xl'>Edit Profile</h1>
                 <div className='flex items-center justify-between bg-gray-100 rounded-xl p-4'>
                     <div className='flex items-center gap-3'>
-                        <Avatar>
-                            <AvatarImage src={carer?.profilePicture} alt="post_image" />
-                            <AvatarFallback>CN</AvatarFallback>
-                        </Avatar>
+                        <div className = "avatar">
+                            <div className = "avatar-fallback">CN</div>
+                        </div>
                         <div>
                             <h1 className='font-bold text-sm'>{carer?.username}</h1>
                             <span className='text-gray-600'>{carer?.bio || 'Bio here...'}</span>
                         </div>
                     </div>
                     <input ref={imageRef} onChange={fileChangeHandler} type='file' className='hidden' />
-                    <Button onClick={() => imageRef?.current.click()} className='bg-[#0095F6] h-8 hover:bg-[#318bc7]'>Change photo</Button>
+                    <button onClick={() => imageRef?.current.click()} className='button button-default button-default-size bg-[#0095F6] h-8 hover:bg-[#318bc7]'>Change photo</button>
                 </div>
                 <div>
                     <h1 className='font-bold text-xl mb-2'>Bio</h1>
@@ -104,12 +104,12 @@ const EditProfile = () => {
                 <div className='flex justify-end'>
                     {
                         loading ? (
-                            <Button className='w-fit bg-[#0095F6] hover:bg-[#2a8ccd]'>
+                            <button className='button button-default button-default-size w-fit bg-[#0095F6] hover:bg-[#2a8ccd]'>
                                 <Loader2 className='mr-2 h-4 w-4 animate-spin' />
                                 Please wait
-                            </Button>
+                            </button>
                         ) : (
-                            <Button onClick={editProfileHandler} className='w-fit bg-[#0095F6] hover:bg-[#2a8ccd]'>Submit</Button>
+                            <button onClick={editProfileHandler} className='button button-default button-default-size w-fit bg-[#0095F6] hover:bg-[#2a8ccd]'>Submit</button>
                         )
                     }
                 </div>

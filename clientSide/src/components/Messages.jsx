@@ -1,11 +1,10 @@
 import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from 'react';
 import { useSelector } from "react-redux";
 import useGetAllMessage from "@/hooks/useGetAllMessage";
 import useGetRTM from "@/hooks/useGetRTM";
+import "../components/styles/styles.css";
 
 const Messages = ({ selectedCarer }) => {
   useGetRTM();
@@ -28,15 +27,14 @@ const Messages = ({ selectedCarer }) => {
     <div className="overflow-y-auto flex-1 p-4">
       <div className="flex justify-center">
         <div className="flex flex-col items-center justify-center">
-          <Avatar className="h-20 w-20">
-            <AvatarImage src={selectedCarer?.userDp} alt="profile" />
-            {/* <AvatarFallback>CN</AvatarFallback> */}
-          </Avatar>
+          <div className="avatar h-20 w-20">
+            <div className = "avatar-fallback">CN</div>
+          </div>
           <span>{selectedCarer?.userName}</span>
           <Link to={`/profile/${selectedCarer?._id}`}>
-            <Button className="h-8 my-2" variant="secondary">
+            <button className="button button-secondary button-default-size h-8 my-2">
               View profile
-            </Button>
+            </button>
           </Link>
         </div>
       </div>

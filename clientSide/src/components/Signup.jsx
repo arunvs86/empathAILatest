@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useSelector } from "react-redux";
+import "../components/styles/styles.css";
 
 const Signup = () => {
   const [input, setInput] = useState({
@@ -86,12 +87,12 @@ const Signup = () => {
 
         <div>
           <span className="font-medium">Password</span>
-          <Input
+          <input
             type="password"
             name="password"
             value={input.password}
             onChange={changeEventHandler}
-            className="focus-visible:ring-transparent my-2"
+            className="input focus-visible:ring-transparent my-2"
           />
         </div>
 
@@ -110,12 +111,12 @@ const Signup = () => {
         </div>
 
         {loading ? (
-          <Button>
+          <button className="button button-default button-default-size">
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             Please wait
-          </Button>
+          </button>
         ) : (
-          <Button type="submit">Signup</Button>
+          <button className="button button-default button-default-size" type="submit">Signup</button>
         )}
         <span className="text-center">
           Already have an account?{" "}

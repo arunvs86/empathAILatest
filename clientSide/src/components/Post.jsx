@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { toast } from "sonner";
 import { setThoughts, setSelectedThought } from "@/redux/postSlice";
-import { Badge } from "./ui/badge";
+import "../components/styles/styles.css"
 
 const Post = ({ thought }) => {
   const [text, setText] = useState("");
@@ -150,7 +150,7 @@ const Post = ({ thought }) => {
         );
       }
     } catch (error) {
-      toast.error("Error reporting the thought.");
+      toast.error("You have already reported this post");
       console.log(error);
     }
   };
@@ -165,14 +165,13 @@ const Post = ({ thought }) => {
         style={{ maxWidth: "750px", width: "100%" }}
       >
         <div className="flex items-center gap-2">
-          <Avatar>
-            <AvatarImage src={thought.carer?.userDp} alt="post_image" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+          <div className = "avatar">
+            <div className = "avatar-fallback">CN</div>
+          </div>
           <div className="flex items-center gap-3">
             <h1>{thought.carer?.userName}</h1>
             {carer?._id === thought?.carer?._id && (
-              <Badge variant="secondary">Owner</Badge>
+              <span className="badge badge-secondary">Owner</span>
             )}
           </div>
         </div>
@@ -181,26 +180,13 @@ const Post = ({ thought }) => {
             <MoreHorizontal className="cursor-pointer" />
           </DialogTrigger>
           <DialogContent className="flex flex-col items-center text-sm text-center">
-            {thought?.carer?._id !== carer?._id && (
-              <Button
-                variant="ghost"
-                className="cursor-pointer w-fit text-[#ED4956] font-bold"
-              >
-                Unfollow
-              </Button>
-            )}
-
-            {/* <Button variant="ghost" className="cursor-pointer w-fit">
-              Add to favorites
-            </Button> */}
             {carer && carer?._id === thought?.carer?._id && (
-              <Button
+              <button
                 onClick={deletePostHandler}
-                variant="ghost"
-                className="cursor-pointer w-fit"
+                className=" button button-ghost button-default-size cursor-pointer w-fit"
               >
                 Delete
-              </Button>
+              </button>
             )}
           </DialogContent>
         </Dialog>

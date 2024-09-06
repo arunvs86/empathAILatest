@@ -6,15 +6,14 @@ import {
   DialogTitle,
   DialogDescription,
 } from "./ui/dialog";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Textarea } from "./ui/textarea";
-import { Button } from "./ui/button";
 import { readFileAsDataURL } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setThoughts } from "@/redux/postSlice";
+import "../components/styles/styles.css"
 
 const CreatePost = ({ open, setOpen }) => {
   const imageRef = useRef();
@@ -75,10 +74,9 @@ const CreatePost = ({ open, setOpen }) => {
           </DialogDescription>
         </DialogHeader>
         <div className="flex gap-3 items-center">
-          <Avatar>
-            <AvatarImage src={carer?.profilePicture} alt="img" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+          <div className = "avatar">
+            <div className = "avatar-fallback">CN</div>
+          </div>
           <div>
             <h1 className="font-semibold text-xs">{carer?.username}</h1>
             {/* <span className='text-gray-600 text-xs'>Bio here...</span> */}
@@ -105,21 +103,21 @@ const CreatePost = ({ open, setOpen }) => {
           className="hidden"
           onChange={fileChangeHandler}
         />
-        <Button
+        <button 
           onClick={() => imageRef.current.click()}
-          className="w-fit mx-auto bg-[#0095F6] hover:bg-[#258bcf] "
+          className="button button-default button-default-size w-fit mx-auto bg-[#0095F6] hover:bg-[#258bcf] "
         >
           Upload Image
-        </Button>
+        </button>
         {imagePreview && loading ? (
-          <Button>
+          <button className="button button-default button-default-size">
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             Please wait
-          </Button>
+          </button>
         ) : (
-          <Button onClick={createPostHandler} type="submit" className="w-full">
+          <button onClick={createPostHandler} type="submit" className="button button-default button-default-size w-full">
             Post
-          </Button>
+          </button>
         )}
       </DialogContent>
     </Dialog>

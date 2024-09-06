@@ -10,18 +10,6 @@ const RightSidebar = () => {
   const { carer } = useSelector(store => store.carer);
   return (
     <div className='w-fit my-10'>
-      {/* <div className='flex items-center gap-2'>
-        <Link to={`/profile/${carer?._id}`}>
-          <Avatar>
-            <AvatarImage src={carer?.profilePicture} alt="post_image" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-        </Link>
-        <div>
-          <h1 className='font-semibold text-sm'><Link to={`/profile/${carer?._id}`}>{carer?.userNname}</Link></h1>
-          <span className='text-gray-600 text-sm'>{carer?.userName || 'Bio here...'}</span>
-        </div>
-      </div> */}
       {/* Useful Links Section */}
       <div className="sidebar-links mt-6" 
       style={{ width: "250px" ,  marginRight:"1rem"}}>

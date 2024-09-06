@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import "../components/styles/styles.css";
 
 const SuggestedUsers = () => {
     const  {suggestedCarers}  = useSelector(store => store.carer);
@@ -17,10 +17,9 @@ const SuggestedUsers = () => {
                         <div key={index} className='flex items-center my-5'>
                             <div className='flex items-center gap-2'>
                                 <Link to={`/profile/${carer?._id}`}>
-                                    <Avatar>
-                                        <AvatarImage src={carer?.userDp} alt="post_image" />
-                                        <AvatarFallback>CN</AvatarFallback>
-                                    </Avatar>
+                                    <div className = "avatar">
+                                        <div className = "avatar-fallback">CN</div>
+                                    </div>
                                 </Link>
                                 <div>
                                     <h1 className='font-semibold text-sm'><Link to={`/profile/${carer?._id}`}>{carer?.username}</Link></h1>

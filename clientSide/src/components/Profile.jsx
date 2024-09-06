@@ -4,13 +4,13 @@ import useGetCarerProfile from "@/hooks/useGetUserProfile";
 import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
 import { AtSign, Heart, MessageCircle } from "lucide-react";
 import axios from "axios";
 import { setCarerProfile } from "@/redux/authSlice";
 import { useEffect } from "react";
 import Post from './Post'
 import RightSidebar from "./RightSidebar";
+import "../components/styles/styles.css";
 
 
 const Profile = () => {
@@ -71,10 +71,9 @@ const Profile = () => {
       <div className="flex flex-col gap-20 p-8">
         <div className="grid grid-cols-2">
           <section className="flex items-center justify-center">
-            <Avatar className="h-32 w-32">
-              <AvatarImage src={carerProfile?.userDp} alt="dp" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
+            <div className="avatar h-32 w-32">
+              <div className = "avatar-fallback">CN</div>
+            </div>
           </section>
           <section>
             <div className="flex flex-col gap-5">
@@ -83,34 +82,32 @@ const Profile = () => {
                 {isLoggedInUserProfile ? (
                   <>
                     <Link to="/account/edit">
-                      <Button
-                        variant="secondary"
-                        className="hover:bg-gray-200 h-8"
+                      <button
+                        className=" button button-secondary button-default-size hover:bg-gray-200 h-8"
                       >
                         Edit profile
-                      </Button>
+                      </button>
                     </Link>
                   </>
                 ) : isFollowing ? (
                   <>
-                    <Button
+                    <button 
                       onClick={() => toggleFollow(carer)}
-                      variant="secondary"
-                      className="h-8"
+                      className="button button-secondary button-default-size h-8"
                     >
                       Unfollow
-                    </Button>
-                    <Button variant="secondary" className="h-8">
+                    </button>
+                    {/* <button  className="button button-secondary button-default-size h-8">
                       Message
-                    </Button>
+                    </button> */}
                   </>
                 ) : (
-                  <Button
+                  <button
                     onClick={() => toggleFollow(carer)}
-                    className="bg-[#0095F6] hover:bg-[#3192d2] h-8"
+                    className="button button-default button-default-size bg-[#0095F6] hover:bg-[#3192d2] h-8"
                   >
                     Follow
-                  </Button>
+                  </button>
                 )}
               </div>
               <div className="flex items-center gap-4">
@@ -133,13 +130,6 @@ const Profile = () => {
                   </span>
                 </p>
               </div>
-              {/* <div className="flex flex-col gap-1">
-                <span className="font-semibold">{targetProfile?.userAbout}</span>
-                <Badge className="w-fit" variant="secondary">
-                  <AtSign />{" "}
-                  <span className="pl-1">{targetProfile?.userName}</span>{" "}
-                </Badge>
-              </div> */}
             </div>
           </section>
         </div>

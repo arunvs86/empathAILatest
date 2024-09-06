@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { setSelectedCarer } from "@/redux/authSlice";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
@@ -8,7 +7,7 @@ import { MessageCircleCode } from "lucide-react";
 import Messages from "./Messages";
 import axios from "axios";
 import { setMessages } from "@/redux/chatSlice";
-
+import "../components/styles/styles.css"
 
 const ChatPage = () => {
   const [textMessage, setTextMessage] = useState("");
@@ -138,10 +137,10 @@ const ChatPage = () => {
                     onClick={() => dispatch(setSelectedCarer(suggestedCarer))}
                     className="flex gap-3 items-center p-3 hover:bg-gray-50 cursor-pointer"
                   >
-                    <Avatar className="w-14 h-14">
-                      <AvatarImage src={suggestedCarer?.userDp} />
-                      {/* <AvatarFallback>CN</AvatarFallback> */}
-                    </Avatar>
+                    <div className="avatar w-14 h-14">
+                      {/* <div className="avatar img" src={suggestedCarer?.userDp} /> */}
+                      <div div className="avatar-fallback">CN</div>
+                    </div>
                     <div className="flex flex-col">
                       <span className="font-bold">
                         {suggestedCarer?.userName}
@@ -163,10 +162,9 @@ const ChatPage = () => {
       {selectedCarer ? (
         <section className="flex-1 border-l border-l-gray-300 flex flex-col h-full">
           <div className="flex gap-3 items-center px-3 py-2 border-b border-gray-300 sticky top-0 bg-white z-10">
-            <Avatar>
-              <AvatarImage src={selectedCarer?.userDp} alt="profile" />
-              {/* <AvatarFallback>CN</AvatarFallback> */}
-            </Avatar>
+            <div className="avatar">
+              <div className="avatar-fallback">CN</div>
+            </div>
             <div className="flex flex-col">
               <span>{selectedCarer?.userName}</span>
             </div>
@@ -181,9 +179,9 @@ const ChatPage = () => {
               className="flex-1 mr-2 focus-visible:ring-transparent"
               placeholder="Messages..."
             />
-            <Button onClick={() => sendMessageHandler(selectedCarer?._id)}>
+            <button className="button button-default button-default-size" onClick={() => sendMessageHandler(selectedCarer?._id)}>
               Send
-            </Button>
+            </button>
           </div>
         </section>
       ) : (
