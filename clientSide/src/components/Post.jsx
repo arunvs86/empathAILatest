@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import { Bookmark, MessageCircle, MoreHorizontal, Send } from "lucide-react";
 import { Button } from "./ui/button";
-import { FaHeart, FaRegHeart , FaCheck} from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaCheck, FaTimesCircle } from "react-icons/fa";
 import CommentDialog from "./CommentDialog";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -126,9 +126,40 @@ const Post = ({ thought }) => {
     }
   };
 
+  const reportHandler = async () => {
+    try {
+      const res = await axios.post(
+        `https://empathailatest.onrender.com/api/v1/thought/${thought._id}/report`,
+        { carerId: carer._id },
+        { withCredentials: true }
+      );
+      if (res.data.success) {
+        toast.success("Thought reported successfully!");
+        dispatch(
+          setThoughts(
+            thoughts.map((p) =>
+              p._id === thought._id
+                ? {
+                    ...p,
+                    thought: res.data.thought.thought,
+                    flagged: res.data.thought.flagged,
+                  }
+                : p
+            )
+          )
+        );
+      }
+    } catch (error) {
+      toast.error("Error reporting the thought.");
+      console.log(error);
+    }
+  };
+
   return (
-    <div className="flex-1 my-8 mx-2 flex flex-col items-center w-full"
-         style={{ marginLeft: "6rem" ,  marginRight:"2rem", width: "100%" }}>
+    <div
+      className="flex-1 my-8 mx-2 flex flex-col items-center w-full"
+      style={{ marginLeft: "6rem", marginRight: "2rem", width: "100%" }}
+    >
       <div
         className="my-8 mx-auto"
         style={{ maxWidth: "750px", width: "100%" }}
@@ -174,24 +205,32 @@ const Post = ({ thought }) => {
           </DialogContent>
         </Dialog>
       </div>
-      <span
-          style={{alignSelf:"start", marginLeft:35,marginBottom:20}}
+
+      {thought.flagged ? (
+        <span>This post has been reported and is under review.</span>
+      ) : (
+        <span
+          style={{ alignSelf: "start", marginLeft: 35, marginBottom: 20 }}
           className="cursor-pointer text-xl text-black-400"
         >
-          {thought.thought} 
+          {thought.thought}
         </span>
-      {thought.image && <img
-        className="rounded-sm my-2 w-full aspect-square object-cover"
-        src={thought.image}
-      />}
+      )}
+
+      {thought.image && (
+        <img
+          className="rounded-sm my-2 w-full aspect-square object-cover"
+          src={thought.image}
+        />
+      )}
 
       <div className="flex justify-between my-2 justify-start">
-        <div className="flex" style={{ gap: 200}}>
+        <div className="flex" style={{ gap: 200 }}>
           {liked ? (
-            <FaHeart
+            <FaCheck
               onClick={likeOrDislikeHandler}
               size={"24"}
-              className="cursor-pointer text-red-600"
+              className="cursor-pointer text-black-600"
             />
           ) : (
             <FaCheck
@@ -208,17 +247,29 @@ const Post = ({ thought }) => {
             }}
             className="cursor-pointer hover:text-gray-600"
           />
-          <Send className="cursor-pointer hover:text-gray-600" />
+          {/* <Send className="cursor-pointer hover:text-gray-600" /> */}
+          {carer?._id !== thought?.carer?._id && (
+            <FaTimesCircle
+              variant="ghost"
+              onClick={reportHandler}
+              className="cursor-pointer w-fit"
+            >
+              Report
+            </FaTimesCircle>
+          )}
 
           <Bookmark
-          onClick={bookmarkHandler}
-          className="cursor-pointer hover:text-gray-600"
-        />
-
+            onClick={bookmarkHandler}
+            className="cursor-pointer hover:text-gray-600"
+          />
         </div>
-        
       </div>
-      <span className="font-medium block mb-2" style={{alignSelf:"start" , marginLeft: 35}}>{postLike} appreciations</span>
+      <span
+        className="font-medium block mb-2"
+        style={{ alignSelf: "start", marginLeft: 35 }}
+      >
+        {postLike} appreciations
+      </span>
       <p>
         <span className="font-medium mr-2">{thought.carer?.username}</span>
         {thought.caption}
@@ -229,21 +280,23 @@ const Post = ({ thought }) => {
             dispatch(setSelectedThought(thought));
             setOpen(true);
           }}
-          style={{alignSelf:"start" , marginLeft: 35}}
+          style={{ alignSelf: "start", marginLeft: 35 }}
           className="cursor-pointer text-sm text-gray-400"
         >
           View all {discussion?.length} discussions
         </span>
       )}
       <CommentDialog open={open} setOpen={setOpen} />
-      <div className="flex items-center" style={{alignSelf:"start" , marginTop: 20, marginLeft: 35}}>
+      <div
+        className="flex items-center"
+        style={{ alignSelf: "start", marginTop: 20, marginLeft: 35 }}
+      >
         <input
           type="text"
           placeholder="Add a discussion..."
           value={text}
           onChange={changeEventHandler}
           className="outline-none text-sm w-full"
-          
         />
         {text && (
           <span

@@ -65,7 +65,7 @@ const Profile = () => {
 
   const displayedThought =
     activeTab === "posts" ? carerProfile?.thoughts : carerProfile?.bookmarks;
-
+    console.log("Called")
   return (
     <div className="flex max-w-5xl justify-center mx-auto pl-10">
       <div className="flex flex-col gap-20 p-8">

@@ -352,3 +352,36 @@ export const bookmarkThought = async (req, res) => {
     console.log(error);
   }
 };
+
+// Report a thought
+export const reportThought = async (req, res) => {
+  try {
+    const carerId = req.body.carerId;
+    const thoughtId = req.params.id;
+    const thought = await Thought.findById(thoughtId);
+
+    if (!thought) {
+      return res.status(404).json({ message: "Thought not found", success: false });
+    }
+
+    if (thought.reports.includes(carerId)) {
+      return res.status(400).json({ message: "You have already reported this thought", success: false });
+    }
+
+    // Add the user to the reports array
+    thought.reports.push(carerId);
+
+    // Flag the post if reports exceed 5
+    if (thought.reports.length > 5) {
+      thought.flagged = true;
+      thought.thought = "This post has been reported and is under review.";
+    }
+
+    await thought.save();
+    return res.status(200).json({ message: "Thought reported", success: true, thought });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Server error", success: false });
+  }
+};
+
