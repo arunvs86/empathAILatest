@@ -96,20 +96,6 @@ const TermsAndConditions = () => {
             </section>
 
             <section className="mb-6">
-                <h2 className="text-2xl font-semibold mb-2">9. Disclaimer of Warranties</h2>
-                <p>
-                    EmpathAI is provided on an "as-is" and "as-available" basis. We make no warranties, whether express or implied, regarding the availability, reliability, or accuracy of the services provided.
-                </p>
-            </section>
-
-            <section className="mb-6">
-                <h2 className="text-2xl font-semibold mb-2">10. Limitation of Liability</h2>
-                <p>
-                    In no event shall EmpathAI, its owners, or its employees be liable for any direct, indirect, incidental, special, or consequential damages arising out of or in connection with your use of the platform.
-                </p>
-            </section>
-
-            <section className="mb-6">
                 <h2 className="text-2xl font-semibold mb-2">11. Changes to These Terms</h2>
                 <p>
                     We may update these terms from time to time. If we make changes, we will notify you by revising the "Last Updated" date at the top of the document. Your continued use of EmpathAI after any such changes constitutes your acceptance of the new terms.
