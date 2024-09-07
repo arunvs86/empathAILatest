@@ -82,13 +82,13 @@ const Profile = () => {
                 <span>{carerProfile?.userName}</span>
                 {isLoggedInUserProfile ? (
                   <>
-                    <Link to="/account/edit">
+                    {/* <Link to="/account/edit">
                       <button
                         className=" button button-secondary button-default-size hover:bg-gray-200 h-8"
                       >
                         Edit profile
                       </button>
-                    </Link>
+                    </Link> */}
                   </>
                 ) : isFollowing ? (
                   <>
@@ -156,35 +156,8 @@ const Profile = () => {
           <div className="grid grid-cols-1 gap-1">
             {displayedThought?.map((thought) => {
               console.log(thought)
-              return (
-                // <div
-                //   key={thought?._id}
-                //   className="relative group cursor-pointer"
-                // >
-                //   {thought.thought}
-                //   {thought.image && (
-                //     <img
-                //       className="rounded-sm my-2 w-full aspect-square object-cover"
-                //       src={thought.image}
-                //     />
-                //   )}
-                //   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                //     <div className="flex items-center text-white space-x-4">
-                //       <button className="flex items-center gap-2 hover:text-gray-300">
-                //         <Heart />
-                //         {/* <span>{thought ? thought?.appreciations.length : ""}</span> */}
-                //       </button>
-                //       <button className="flex items-center gap-2 hover:text-gray-300">
-                //         <MessageCircle />
-                //         {/* <span>{thought ? thought?.discussions.length: ""}</span> */}
-                //       </button>
-                //     </div>
-                //   </div>
-                // </div>
-                
-                <Post className = "spakce-y-8" key={thought._id} thought={thought}/>
-
-                
+              return (               
+                <Post className = "spakce-y-8" key={thought._id} thought={thought}/>  
               );
             })}
           </div>

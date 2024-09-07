@@ -70,7 +70,7 @@ const CreatePost = ({ open, setOpen }) => {
         <DialogHeader className="text-center font-semibold">
           <DialogTitle>Create New Thought</DialogTitle>
           <DialogDescription>
-            Write your thoughts and share them with your followers.
+            Write your thoughts and share them with the world.
           </DialogDescription>
         </DialogHeader>
         <div className="flex gap-3 items-center">
