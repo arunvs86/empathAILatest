@@ -9,7 +9,7 @@ const Discussion = ({ discussion }) => {
                 <div className='avatar'>
                     <div className='avatar-fallback'>{discussion?.carer?.userName?.charAt(0).toUpperCase()}</div>
                 </div>
-                <h1 className='font-bold text-sm'>{discussion?.carer.userName} <span className='font-normal pl-1'>{discussion?.text}</span></h1>
+                <h1 className='font-bold text-sm'>{discussion?.carer?.userName} <span className='font-normal pl-1'>{discussion?.text}</span></h1>
             </div>
         </div>
     )
