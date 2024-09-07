@@ -255,7 +255,7 @@ const Post = ({ thought }) => {
         className="font-medium block mb-2"
         style={{ alignSelf: "start", marginLeft: 35 }}
       >
-        {postLike} appreciations
+        {postLike} acknowledgements
       </span>
       <p>
         <span className="font-medium mr-2">{thought.carer?.username}</span>
