@@ -1,6 +1,7 @@
 import {Chat} from "../schema/chatSchema.js";
 import { getReceiverSocketId, io } from "../socketConfig/socketConnection.js";
 import {Message} from "../schema/messageSchema.js"
+import { encrypt,decrypt } from '../helpers/encryption.js';  // Import encryption utility
 
 // for chatting
 
@@ -10,6 +11,9 @@ export const sendMessage = async (req,res) => {
         const receiverId = req.params.id;
         const message = req.body.textMessage;
       
+        const encryptedMessage = encrypt(message);
+
+
         let chat = await Chat.findOne({
             participants:{$all:[senderId, receiverId]}
         });
@@ -19,10 +23,11 @@ export const sendMessage = async (req,res) => {
                 participants:[senderId, receiverId]
             })
         };
+
         const newMessage = await Message.create({
             senderId,
             receiverId,
-            message
+            message: encryptedMessage,  // Save encrypted message
         });
 
         if(newMessage) chat.messages.push(newMessage._id);
@@ -35,6 +40,8 @@ export const sendMessage = async (req,res) => {
             io.to(receiverSocketId).emit('newMessage', newMessage);
         }
 
+        newMessage.message = decrypt(newMessage.message)
+        
         return res.status(201).json({
             success:true,
             newMessage
@@ -55,7 +62,13 @@ export const getAllMessages = async (req,res) => {
 
         if(!chat) return res.status(200).json({success:true, messages:[]});
 
-        return res.status(200).json({success:true, messages:chat?.messages});
+        // Decrypt the messages before sending them to the client
+        const decryptedMessages = chat.messages.map((message) => ({
+            ...message._doc,
+            message: decrypt(message.message) // Decrypt the message
+          }));
+
+        return res.status(200).json({success:true, messages:decryptedMessages});
         
     } catch (error) {
         console.log(error);

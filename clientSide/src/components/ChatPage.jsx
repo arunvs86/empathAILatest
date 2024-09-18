@@ -7,6 +7,8 @@ import axios from "axios";
 import { setMessages } from "@/redux/chatSlice";
 import "../components/styles/styles.css"
 
+
+
 const ChatPage = () => {
   const [textMessage, setTextMessage] = useState("");
   const { carer, suggestedCarers, selectedCarer,bot } = useSelector(
