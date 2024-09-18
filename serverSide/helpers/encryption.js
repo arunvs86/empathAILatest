@@ -4,7 +4,7 @@ import crypto from 'crypto';
 const algorithm = 'aes-256-cbc';
 const secretKey = Buffer.from(process.env.encryptionSecretKey,'hex')  // Store securely in environment variables
 // Encryption function
-const iv = Buffer.alloc(16, 0); // Use a static IV of 16 bytes (not recommended for production security)
+const iv = Buffer.alloc(16, 0); //
 
 // Encrypt function
 export const encrypt = (text) => {
