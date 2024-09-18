@@ -62,6 +62,9 @@ const LeftSidebar = () => {
     } else if (textType === "Messages") {
       navigate("/chat");
     }
+    else if (textType === "EmpathAIBot") {
+      navigate("/chat");
+    }
   };
 
   const notificationHandler = (notification) => {

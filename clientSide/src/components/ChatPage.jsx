@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedCarer } from "@/redux/authSlice";
 import { Input } from "./ui/input";
-import { Button } from "./ui/button";
-import { MessageCircleCode } from "lucide-react";
 import Messages from "./Messages";
 import axios from "axios";
 import { setMessages } from "@/redux/chatSlice";
@@ -11,7 +9,7 @@ import "../components/styles/styles.css"
 
 const ChatPage = () => {
   const [textMessage, setTextMessage] = useState("");
-  const { carer, suggestedCarers, selectedCarer } = useSelector(
+  const { carer, suggestedCarers, selectedCarer,bot } = useSelector(
     (store) => store.carer
   );
   const { onlineUsers, messages } = useSelector((store) => store.chat);
@@ -107,7 +105,8 @@ const ChatPage = () => {
 
   useEffect(() => {
     return () => {
-      dispatch(setSelectedCarer(null));
+      // dispatch(setBot(bot))
+      dispatch(setSelectedCarer(bot));
     };
   }, []);
 
@@ -129,8 +128,9 @@ const ChatPage = () => {
               .map((suggestedCarer) => {
                 let isOnline = onlineUsers.includes(suggestedCarer?._id);
                 if (suggestedCarer?._id == "66d62bdae8774aa19586b681")
+                {
                   isOnline = true;
-
+                }
                 return (
                   <div
                     key={suggestedCarer._id}

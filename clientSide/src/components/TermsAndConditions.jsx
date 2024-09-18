@@ -105,7 +105,7 @@ const TermsAndConditions = () => {
             <section className="mb-6">
                 <h2 className="text-2xl font-semibold mb-2">12. Contact Information</h2>
                 <p>
-                    If you have any questions about these terms, please contact us at [Contact Email].
+                    If you have any questions about these terms, please contact us at arunvs7475@gmail.com.
                 </p>
             </section>
         </div>

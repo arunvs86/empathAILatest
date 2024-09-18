@@ -21,6 +21,9 @@ const carerSlice = createSlice({
         },
         setSelectedCarer:(state,action) => {
             state.selectedCarer = action.payload;
+        },
+        setBot:(state,action) => {
+            state.bot = action.payload;
         }
     }
 });
@@ -30,6 +33,7 @@ export const {
     setSuggestedCarers, 
     setCarerProfile,
     setSelectedCarer,
+    setBot
 } = carerSlice.actions;
 
 
