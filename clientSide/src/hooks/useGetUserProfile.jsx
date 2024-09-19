@@ -12,6 +12,7 @@ const useGetCarerProfile = (carerId) => {
             try {
                 const res = await axios.get(`https://empathailatest.onrender.com/api/v1/carer/${carerId}/profile`, { withCredentials: true });
                 if (res.data.success) { 
+                    console.log("Redux carer profile:",res.data.carer)
                     dispatch(setCarerProfile(res.data.carer));
                 }
             } catch (error) {

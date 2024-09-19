@@ -128,7 +128,7 @@ export const getCarerThought = async (req, res) => {
         sort: { createdAt: -1 },
         populate: {
           path: "carer",
-          select: "userName, userDp",
+          select: "userName userDp",
         },
       });
     return res.status(200).json({

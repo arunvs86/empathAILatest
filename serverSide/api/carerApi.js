@@ -109,13 +109,38 @@ export const getProfile = async(req,res) => {
   try{
     const carerId = req.params.id;
     const carer = await Carer.findById(carerId)
-    .populate({
-      path: 'thoughts'
-    })
-    .populate({
-      path: 'bookmarks'
-    });
-    
+      .populate({
+        path: 'thoughts',
+        populate: [
+          {
+            path: 'discussions',
+            populate: {
+              path: 'carer', // Populate carer inside discussions if needed
+            },
+          },
+          {
+            path: 'carer',
+          },
+        ],
+        select: 'thought image carer discussions appreciations' // Fields to select in thoughts
+      })
+      .populate({
+        path: 'bookmarks',
+        populate: [
+          {
+            path: 'discussions',
+            populate: {
+              path: 'carer', // Populate carer inside discussions if needed
+            },
+          },
+          {
+            path: 'carer', // Populate carer within thoughts
+          },
+        ],
+        select: 'thought image carer discussions appreciations' // Fields to select in bookmarks
+      });
+
+    console.log(carer) 
     return res.status(200).json({
       carer,
       success:true
